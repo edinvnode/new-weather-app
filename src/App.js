@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+
+const API_KEY = '66fc738f52b19a4f2eadf7b062f38778';
 
 function App() {
+  const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState('');
+
+  async function fetchData(e) {
+    e.preventDefault();
+    setWeather(null);
+
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+    );
+    if (!response.ok) {
+      throw new Error('City not found');
+    }
+
+    const data = await response.json();
+
+    setWeather(data);
+    //console.log(data);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <form onSubmit={fetchData}>
+        <label>Enter city name</label>
+        <input
+          type="text"
+          className="city-input"
+          placeholder="Enter city name..."
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <div className="weather-data">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          City {weather?.name} , Country: {weather?.sys?.country}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>Temperature: {weather?.main?.temp} °C</p>
+        <p>Weather: {weather?.weather[0]?.main}</p>
+        <p>Wind: {weather?.wind?.speed} m/s</p>
+        <p>Humidity: {weather?.main?.humidity} %</p>
+      </div>
     </div>
   );
 }
