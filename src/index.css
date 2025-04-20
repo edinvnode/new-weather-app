@@ -6,7 +6,13 @@
 }
 
 body {
-  background-color: rgb(152, 218, 166);
+  background-color: rgb(51, 153, 236);
+  background-image: url('./images/background.jpg'); /* You can use a local image or a link */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
   height: 100%;
 }
 
@@ -25,20 +31,27 @@ form {
   gap: 10px;
   margin-top: 10px;
   border: 1px solid rgb(173, 66, 235);
+  width: 200px;
 }
 
 label {
-  color: blue;
+  color: rgb(212, 52, 105);
   font-weight: bold;
   text-align: center;
 }
 
 button {
   padding: 10px;
+  border-radius: 10px;
 }
 
 .weather-data {
   text-align: center;
   font-weight: bold;
   border: 1px solid rgb(130, 130, 252);
+}
+
+.error-message {
+  color: red;
+  text-align: center;
 }
