@@ -19,13 +19,14 @@ function App() {
       //throw new Error('City not found');
       setError('City not found.');
       setErrorMessage(true);
+    } else {
+      const data = await response.json();
+
+      setWeather(data);
+      setError('');
+      setErrorMessage(false);
     }
 
-    const data = await response.json();
-
-    setWeather(data);
-    setError('');
-    setErrorMessage(false);
     //console.log(data);
   }
 
