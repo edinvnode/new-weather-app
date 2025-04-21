@@ -38,6 +38,7 @@ label {
   color: rgb(212, 52, 105);
   font-weight: bold;
   text-align: center;
+  height: 30px;
 }
 
 button {
@@ -56,4 +57,11 @@ button {
   color: red;
   text-align: center;
   border: 1px solid red;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  gap: 20px;
 }
