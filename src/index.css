@@ -65,3 +65,9 @@ button {
   width: 400px;
   gap: 20px;
 }
+
+.error-container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}

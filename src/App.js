@@ -104,12 +104,6 @@ function App() {
           </div>
         )}
 
-        {errorMessage && (
-          <div className="error-message">
-            <span>{error}</span>
-          </div>
-        )}
-
         {!tempErrorMessage && temperatures?.list && (
           <div className="weather-data">
             Temperatures:
@@ -124,11 +118,21 @@ function App() {
             ))}
           </div>
         )}
-
-        {tempErrorMessage && (
+      </div>
+      <div className="error-container">
+        {errorMessage ? (
+          <div className="error-message">
+            <span>{error}</span>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {tempErrorMessage ? (
           <div className="error-message">
             <span>{tempError}</span>
           </div>
+        ) : (
+          <div></div>
         )}
       </div>
     </div>
