@@ -30,7 +30,7 @@ form {
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
-  border: 1px solid rgb(173, 66, 235);
+  /* border: 1px solid rgb(173, 66, 235); */
   width: 200px;
 }
 
@@ -38,6 +38,7 @@ label {
   color: rgb(212, 52, 105);
   font-weight: bold;
   text-align: center;
+  font-size: 16px;
   height: 30px;
 }
 
